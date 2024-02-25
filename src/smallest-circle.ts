@@ -92,18 +92,7 @@ type StackElement = {
     element?: Vector
 }
 
-/**
- * For details see:
- * Welzl, E. (1991). Smallest enclosing disks (balls and ellipsoids).
- * In New results and new trends in computer science (pp. 359-370).
- * Springer, Berlin, Heidelberg.
- */
-
 export function smallestCircle(points: Vector[]): Circle | undefined {
-    /**
-     * This function is a (naive) iterative rewrite of Welzl's recursive
-     * minidisk algorithm.
-     */
 
     const p: Vector[] = points.slice()
     const r: Vector[] = []
@@ -175,7 +164,7 @@ export function smallestCircle(points: Vector[]): Circle | undefined {
     return circle
 }
 
-export function smallestCircleRecursive(points: Vector[], seed?: string | undefined) {
+export function smallestCircleRecursive(points: Vector[]) {
 
     function recursion(p: Vector[], r: Vector[]): Circle | undefined {
         if (p.length === 0 || r.length === 3) {
