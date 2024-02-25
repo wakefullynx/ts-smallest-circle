@@ -16,7 +16,8 @@
     "isolatedModules": true,
     "sourceMap": true,
     "outDir": "dist",
-    "declaration": true
+    "declaration": true,
+    "allowJs": true
   },
   "include": [
     "src"

@@ -1,3 +1,3 @@
-import { circumcircle } from "./smallest-circle"
+import { circumcircle, smallestCircle, smallestCircleRecursive, circleCenter, circleRadius } from "./smallest-circle"
 
-export { circumcircle }
+export { circumcircle, smallestCircle, smallestCircleRecursive, circleCenter, circleRadius }
