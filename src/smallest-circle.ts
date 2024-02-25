@@ -26,7 +26,7 @@ function createCircle(r: Vector[]): Circle | undefined {
 
         return {
             points: [[ax, ay], [bx, by]],
-            counterclockwise: orient2d(ax, ay, bx, by, px, py) < 0,
+            counterclockwise: true,
             surrogate: [px, py]
         }
     } else if (r.length === 3) {
@@ -196,12 +196,12 @@ function isInsideCircle(p: Point, c: Circle | undefined): boolean {
         const [ax, ay] = c.points[0]
         const [bx, by] = c.points[1]
         const [cx, cy] = c.surrogate!
-        return incircle(ax, ay, bx, by, cx, cy, px, py) < 0 !== c.counterclockwise
+        return c.counterclockwise && incircle(ax, ay, bx, by, cx, cy, px, py) >= 0 || !c.counterclockwise && incircle(ax, ay, cx, cy, bx, by, px, py) >= 0
     } else {
         const [ax, ay] = c.points[0]
         const [bx, by] = c.points[1]
         const [cx, cy] = c.points[2]
-        return incircle(ax, ay, bx, by, cx, cy, px, py) < 0 !== c.counterclockwise
+        return c.counterclockwise && incircle(ax, ay, bx, by, cx, cy, px, py) >= 0 || !c.counterclockwise && incircle(ax, ay, cx, cy, bx, by, px, py) >= 0
     }
 }
 
