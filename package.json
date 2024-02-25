@@ -2,11 +2,12 @@
   "name": "smallest-circle",
   "version": "0.1.0",
   "description": "Iterative and recursive two-dimensional implementations of Welzl's algorithm for solving the smallest circle problem.",
+  "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "jest --passWithNoTests"
+    "test": "jest"
   },
   "keywords": [
     "welzl",
@@ -17,8 +18,34 @@
   ],
   "author": "",
   "license": "MIT",
+  "jest": {
+    "verbose": true,
+    "preset": "ts-jest",
+    "transform": {
+      "^.+\\.[t|j]s?$": "ts-jest"
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/(?!robust-predicates)"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "collectCoverage": true
+  },
   "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/seedrandom": "^3.0.8",
+    "babel-jest": "^29.7.0",
     "jest": "^29.7.0",
+    "jest-environment-node": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "robust-predicates": "^3.0.2",
+    "seedrandom": "^3.0.5"
   }
 }
