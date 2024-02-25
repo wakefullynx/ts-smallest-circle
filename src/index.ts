@@ -1,3 +1,3 @@
-import { circumcircle, smallestCircle, smallestCircleRecursive, circleCenter, circleRadius } from "./smallest-circle"
+import { circumcircle, smallestCircle, smallestCircleRecursive, circleCenter, circleRadius, shuffle } from "./smallest-circle.js"
 
-export { circumcircle, smallestCircle, smallestCircleRecursive, circleCenter, circleRadius }
+export { circumcircle, smallestCircle, smallestCircleRecursive, circleCenter, circleRadius, shuffle }
