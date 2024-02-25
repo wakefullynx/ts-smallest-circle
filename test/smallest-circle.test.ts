@@ -90,7 +90,6 @@ describe('iterative', () => {
 
     test('basic_triangle', () => {
         const r = smallestCircle([[0, 0], [1, 0], [1, 1], [1, 1]])
-        console.log(r)
         expect(circleCenter(r)).toEqual([0.5, 0.5])
         expect(circleRadius(r)).toEqual(Math.SQRT1_2)
     })
