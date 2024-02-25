@@ -1,8 +1,7 @@
 import { incircle, orient2d } from 'robust-predicates'
 import * as seedrandom from 'seedrandom'
 
-export type Point = [number, number]
-export type Vector = [number, number]
+export type Point = number[]
 
 export type Circle = {
     points: [Point] | [Point, Point] | [Point, Point, Point]
@@ -10,7 +9,7 @@ export type Circle = {
     surrogate: undefined | Point
 }
 
-function createCircle(r: Vector[]): Circle | undefined {
+function createCircle(r: Point[]): Circle | undefined {
     if (r.length === 1) {
         return {
             points: [r[0]],
@@ -89,13 +88,13 @@ const enum State {
 
 type StackElement = {
     state: State,
-    element?: Vector
+    element?: Point
 }
 
-export function smallestCircle(points: Vector[]): Circle | undefined {
+export function smallestCircle(points: Point[]): Circle | undefined {
 
-    const p: Vector[] = points.slice()
-    const r: Vector[] = []
+    const p: Point[] = points.slice()
+    const r: Point[] = []
 
     const stack: StackElement[] = [{
         state: State.S0
@@ -164,9 +163,9 @@ export function smallestCircle(points: Vector[]): Circle | undefined {
     return circle
 }
 
-export function smallestCircleRecursive(points: Vector[]) {
+export function smallestCircleRecursive(points: Point[]) {
 
-    function recursion(p: Vector[], r: Vector[]): Circle | undefined {
+    function recursion(p: Point[], r: Point[]): Circle | undefined {
         if (p.length === 0 || r.length === 3) {
             return createCircle(r)
         } else {
